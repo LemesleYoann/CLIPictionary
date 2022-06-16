@@ -1,0 +1,12 @@
+Tip: Filling shapes can help!
+Tip: Drawing context elements can help!
+Tip: Big drawings are more likely to work!
+Tip: Adding a face to objects doing actions helps!
+Tip: Add a musical note to help CLIP guess instruments!
+Tip: Add a fork to help CLIP guess food!
+Did you know? CLIP has multimodal neurons!
+Did you know? The paper introducing CLIP has been published in 2021.
+Did you know? CLIP stands for 'Contrastive Language-Image Pretraining'.
+Did you know? DALL·E 2 can generate images from text using CLIP's embeddings!
+Did you know? Typographic attacks (adding text to images) can change CLIP's predictions!
+Did you know? CLIP has been trained on 400 millions (image,text) pairs!
