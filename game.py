@@ -11,6 +11,14 @@ with open("infos.txt") as file:
 with open("style.css") as style:
     css = "<style>"+ ''.join(style.readlines())+"</style>"
 
+##### 'DIFFICULTY SWITCH' EVENT
+def switch_difficulty(var_dict, html_loading):
+
+    var_dict["difficulty"] = 1 - var_dict["difficulty"]
+
+    title, infos, new_value = loading(html_loading)
+    return var_dict, title, infos, new_value
+
 ##### 'LOADING' EVENT
 def loading(html_loading=None):
     ### This is just to make sure the content changes, which triggers the .change event which, itself, will launch a new game
@@ -22,8 +30,12 @@ def loading(html_loading=None):
     return "<h1 id=\"loading\">⌛Loading...</h1>",css+"<div id=\"prediction\"><p id=\"infos\">"+info+"</p></div>",new_value
 
 ##### 'NEW GAME' EVENT
-def new_game(img=None,first_game=False):
+def new_game(var_dict,img=None,first_game=False):
     print("\n----------Launching new game!")
+
+    if None is not var_dict:    difficulty = var_dict["difficulty"]
+    else:                       difficulty = 1
+
     var_dict = {
         "start_time":           time.time(),
         "total_time":           0,
@@ -37,7 +49,8 @@ def new_game(img=None,first_game=False):
         "prev_norm":            float("inf"),
         "tip":                  "",
         "loading":              False,
-        "revertedState":        False
+        "revertedState":        False,
+        "difficulty":           difficulty
     }
     target = iniSentence(var_dict,first_game=first_game)
     ### Return TITLE, PREDICTION TEXT, CANVAS IMG, VAR DICT

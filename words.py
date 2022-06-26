@@ -2,9 +2,9 @@
 # A DRAWING OF A ...
 shapes      = ["triangle","square","circle","heart","star","diamond"]
 animals     = ["cat","dog","duck","bee","butterfly","bird","pig","cow","fish","frog","shark","snake","mouse","monkey","snail"]
-objects     = ["wine glass","eye","plane","spoon","basket ball","chair","pen","computer","hat","soccer ball","phone","sword","axe","umbrella","bell","dumbbell","scissors","fork","bag","clock","key","shopping cart","car","boat","house","mug","sun","moon","atom","hand"]
+objects     = ["bottle","wine glass","plane","spoon","basket ball","chair","pen","computer","hat","soccer ball","phone","sword","axe","umbrella","bell","dumbbell","scissors","fork","bag","clock","key","shopping cart","car","boat","house","mug","sun","moon","atom","hand"]
 plants      = ["tree","flower","leaf","palm tree","mushroom"] # I know that mushrooms are not plants stop coming to my house
-food        = ["donut","coconut","banana","apple","bottle","sausage","icecream","burger","egg","lollypop","pizza"]
+food        = ["donut","coconut","banana","apple","sausage","icecream","burger","egg","pizza"]
 instruments = ["drum","guitar","piano","flute","trumpet","accordion"]
 
 # FEELING ...

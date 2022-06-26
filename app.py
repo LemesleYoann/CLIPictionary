@@ -8,8 +8,11 @@ import numpy as np
 from sentence import *
 from game import *
 
+from PIL import Image
+import os, os.path
+
 ##### Initialize new game
-title, _,_,var_dict    = new_game(first_game=True)
+title, _,_,var_dict    = new_game(None, None, first_game=True)
 var_dict["start_time"] = -1
 
 ##### Display & Events
@@ -27,7 +30,10 @@ with demo:
                 html_pred    = gr.HTML(value=getHTML(var_dict,""))
                 html_loading = gr.HTML("")
         ### 'New Sentence' Button
-        button  = gr.Button("New Sentence",variant="primary")
+        with gr.Row():
+            button_new   = gr.Button("New Sentence",variant="primary")
+            button_mode  = gr.Button("Switch Difficulty")
+            block        = gr.HTML("<div style=\"width:50vw;\"> </div>")
         ### Informations
         gr.HTML("<div style=\"display:block; height:30px;\"> </div>")
         with gr.Row():
@@ -35,8 +41,9 @@ with demo:
 
 
     ### Events
-    button.click(loading,inputs=html_loading,outputs=[title,html_pred,html_loading])  # Button -> triggers Loading
-    html_loading.change(new_game,inputs=[html_loading],outputs=[title,html_pred,image_input,variables])     # Loading -> triggers New game
+    button_mode.click(switch_difficulty,inputs=[variables,html_loading],outputs=[variables,title,html_pred,html_loading])
+    button_new.click(loading,inputs=html_loading,outputs=[title,html_pred,html_loading])  # Button -> triggers Loading
+    html_loading.change(new_game,inputs=[variables,html_loading],outputs=[title,html_pred,image_input,variables])     # Loading -> triggers New game
     image_input.change(process_img, inputs=[variables,image_input,title], outputs=[html_pred,title,variables])
 
 

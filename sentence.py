@@ -40,7 +40,7 @@ def iniSentence(var_dict,input="",first_game=False):
     var_dict["parts"]       = []
     var_dict["step"]        = 0
     prefix                  = ""
-    N                       = 2
+    N                       = (2 if var_dict["difficulty"] == 1 else 1)
 
     if first_game:
         link = "a drawing of a"
@@ -92,7 +92,7 @@ def updateState(var_dict, preds):
     ### Check if the current part has been guessed
     part = var_dict["parts"][var_dict["step"]]
 
-    '''
+    
     idx_of_nothing = -1
     if ("nothing" in preds[0]):   idx_of_nothing = 0
     elif ("nothing" in preds[1]): idx_of_nothing = 1
@@ -102,9 +102,9 @@ def updateState(var_dict, preds):
     if (part["classes"][-1] == preds[0]):   idx_of_guess = 0
     elif (part["classes"][-1] == preds[1]): idx_of_guess = 1
     elif (part["classes"][-1] == preds[2]): idx_of_guess = 2
-    '''
 
-    if not var_dict["win"] and part["classes"][-1] in preds:
+
+    if not var_dict["win"] and (idx_of_guess > idx_of_nothing):
         var_dict["step"] += 1
         var_dict["found_words"].append(part["word"])
         var_dict["win"] = var_dict["step"] == len(var_dict["parts"])
